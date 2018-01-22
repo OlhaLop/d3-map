@@ -17,13 +17,15 @@ if app.config["DEBUG"]:
         return response
 
 # Create a connection to MongoDB
-client = MongoClient('mongodb://olya12345:megapwd12345@cluster0-shard-00-00-1ckqs.mongodb.net:27017,cluster0-shard-00-01-1ckqs.mongodb.net:27017,cluster0-shard-00-02-1ckqs.mongodb.net:27017/admin?replicaSet=Cluster0-shard-0&ssl=true')
+client = MongoClient('mongodb://username:password@cluster0-shard-00-00-1ckqs.mongodb.net:27017,cluster0-shard-00-01-1ckqs.mongodb.net:27017,cluster0-shard-00-02-1ckqs.mongodb.net:27017/admin?replicaSet=Cluster0-shard-0&ssl=true')
 
 db = client.data
 
 @app.route("/")
 def index():
     """Render map."""
+    
+    # https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html
     return render_template("index.html")
 
 @app.route("/collection")
